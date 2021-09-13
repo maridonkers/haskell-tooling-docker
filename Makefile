@@ -8,7 +8,7 @@ all: up
 
 up:
 	xhost +LOCAL:
-	mkdir -p .cabal .local .stack
+	mkdir -p .cabal .local .stack usr/local
 	docker-compose up --detach
 
 down:

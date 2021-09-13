@@ -14,6 +14,7 @@ services:
       - "./.stack/:/home/haskell/.stack/:rw"
       - "./.cabal:/home/haskell/.cabal:rw"
       - "./.local/:/home/haskell/.local/:rw"
+      - "./usr/local/:/usr/local/:rw"
       - "~/src/:/home/haskell/src/:rw"
       - "~/Development/:/home/haskell/Development/:rw"
       - "~/.Xauthority:/home/haskell/.Xauthority:rw"
