@@ -1,0 +1,20 @@
+version: "2.0"
+services:
+  "haskell":
+    image: tooling-haskell
+    build: .
+    stdin_open: true
+    tty: true
+    privileged: true
+    ipc: host
+    environment:
+      - TZ=Europe/Amsterdam
+    network_mode: host
+    volumes:
+      - "./.stack/:/home/haskell/.stack/:rw"
+      - "./.cabal:/home/haskell/.cabal:rw"
+      - "./.local/:/home/haskell/.local/:rw"
+      - "~/src/:/home/haskell/src/:rw"
+      - "~/Development/:/home/haskell/Development/:rw"
+      - "~/.Xauthority:/home/haskell/.Xauthority:rw"
+      - "/tmp/.X11-unix/:/tmp/.X11-unix/:ro"
