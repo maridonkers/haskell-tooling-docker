@@ -7,8 +7,10 @@ services:
     tty: true
     privileged: true
     ipc: host
+    # https://docs.docker.com/compose/environment-variables/
     environment:
       - TZ=Europe/Amsterdam
+      - ENV_DOCKER_HASKELL_PASSWORD=${DOCKER_HASKELL_PASSWORD}
     network_mode: host
     volumes:
       - "./.stack/:/home/haskell/.stack/:rw"
