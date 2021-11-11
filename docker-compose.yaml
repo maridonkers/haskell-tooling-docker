@@ -6,6 +6,8 @@ services:
     stdin_open: true
     tty: true
     privileged: true
+    devices:
+      - "/dev/snd/:/dev/snd/"
     ipc: host
     # https://docs.docker.com/compose/environment-variables/
     environment:
@@ -13,11 +15,14 @@ services:
       - ENV_DOCKER_HASKELL_PASSWORD=${DOCKER_HASKELL_PASSWORD}
     network_mode: host
     volumes:
-      - "./.stack/:/home/haskell/.stack/:rw"
-      - "./.cabal:/home/haskell/.cabal:rw"
-      - "./.local/:/home/haskell/.local/:rw"
-      - "./usr/local/:/usr/local/:rw"
+      - "~/lib/haskell/.stack/:/home/haskell/.stack/:rw"
+      - "~/lib/haskell/.cabal:/home/haskell/.cabal:rw"
+      - "~/lib/haskell/.local/:/home/haskell/.local/:rw"
+      - "~/lib/haskell/usr/local/:/usr/local/:rw"
       - "~/src/:/home/haskell/src/:rw"
       - "~/Development/:/home/haskell/Development/:rw"
       - "~/.Xauthority:/home/haskell/.Xauthority:rw"
       - "/tmp/.X11-unix/:/tmp/.X11-unix/:ro"
+      - "/var/lib/usbmux:/var/lib/usbmux"
+      - "/var/run/user/1000/pulse:/run/user/1000/pulse"
+      - "/etc/asound.conf:/etc/asound.conf"

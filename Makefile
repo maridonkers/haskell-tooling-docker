@@ -8,7 +8,7 @@ all: up
 
 up:
 	xhost +LOCAL:
-	mkdir -p .cabal .local .stack usr/local
+	mkdir -p ~/lib/haskell/.cabal ~/lib/haskell/.local ~/lib/haskell/.stack ~/lib/haskell/usr/local
 	docker-compose up --detach
 
 down:
